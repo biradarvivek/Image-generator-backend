@@ -10,8 +10,8 @@ dotenv.config();
 const app = express();
 app.use(
   cors({
-    // origin: "http://localhost:5173", // adjust this for your production URL
-    origin: "https://image-generator-lexica.netlify.app/",
+    origin: "http://localhost:5173", // adjust this for your production URL
+    // origin: "https://image-generator-lexica.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
