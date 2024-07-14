@@ -1,7 +1,6 @@
 import express from "express";
 import * as dotenv from "dotenv";
 import { v2 as cloudinary } from "cloudinary";
-
 import Post from "../mongodb/models/post.js";
 
 dotenv.config();
@@ -20,7 +19,7 @@ router.get("/get", async (req, res) => {
     console.log("Posts fetched successfully:", posts);
     res.status(200).json({ success: true, data: posts });
   } catch (err) {
-    console.error("Error fetching posts:", err);
+    console.error("Error fetching posts:", err.message);
     res.status(500).json({
       success: false,
       message: "Fetching posts failed, please try again",
@@ -43,7 +42,7 @@ router.post("/post", async (req, res) => {
     console.log("New post created:", newPost);
     res.status(200).json({ success: true, data: newPost });
   } catch (err) {
-    console.error("Error creating post:", err);
+    console.error("Error creating post:", err.message);
     res.status(500).json({
       success: false,
       message: "Unable to create a post, please try again",
